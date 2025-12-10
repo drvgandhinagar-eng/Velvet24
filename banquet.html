@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Velvet 24 — Banquet Menu</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Small page-specific adjustments */
+    .banquet-hero { padding:36px 0; text-align:center; background:linear-gradient(180deg, #fff, #fcf9fb); }
+    .banquet-hero h2{font-size:28px;margin:0 0 6px;}
+    .banquet-hero p{color:var(--muted); margin:0;}
+    .banquet-container{ max-width:1100px;margin:18px auto;padding:18px; }
+    .pkg-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; }
+    .pkg-card{ background:#fff; border-radius:12px; padding:16px; box-shadow:0 8px 20px rgba(0,0,0,0.06); border:1px solid #f0e9ee; }
+    .pkg-card h3{ margin:0 0 6px; font-size:18px; }
+    .pkg-price{ float:right; font-weight:900; color:var(--accent); }
+    .section-title{ font-size:20px; margin:22px 0 8px; }
+    .item-list{ list-style:none; padding:0; margin:0; column-count:1; }
+    .item-list li{ padding:6px 0; border-bottom:1px dashed #f3eef3; color:#222; }
+    .controls{ display:flex; gap:8px; justify-content:center; margin-top:12px; }
+    .btn{ padding:10px 14px; border-radius:8px; border:none; cursor:pointer; }
+    .btn-ghost{ background:transparent; border:1px solid #ddd; }
+    .btn-primary{ background:var(--accent); color:#fff; font-weight:800; }
+    .download-row{ display:flex; gap:8px; justify-content:center; margin-top:14px; }
+    pre.terms{ white-space:pre-wrap; background:#faf6f8; padding:12px; border-radius:8px; border:1px solid #f2e9ee; color:#333; font-size:13px; }
+    @media (max-width:700px){ .pkg-price{ display:block; float:none; margin-top:8px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-flex">
+      <h1 class="logo">Velvet 24</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="banquet.html" class="active">Banquet</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a id="orderHeaderBtn" class="order-btn" href="https://www.swiggy.com/city/ahmedabad/velvet-24-restaurant-and-banquet-gandhinagar-rest1133323" target="_blank">Order Online</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="banquet-hero">
+      <div class="container">
+        <h2>Banquet & Packages</h2>
+        <p>Capacity 100 to 400 persons — packages, breakfast options, extra items & hall rental listed below.</p>
+      </div>
+    </section>
+
+    <div class="banquet-container">
+
+      <div class="download-row">
+        <!-- Place Banquet Menu.pdf in same folder to enable download -->
+        <a class="btn btn-ghost" href="Banquet Menu.pdf" download>Download Brochure (PDF)</a>
+        <button class="btn btn-primary" onclick="window.print()">Print this page</button>
+      </div>
+
+      <h3 class="section-title">Main Banquet Packages</h3>
+      <div class="pkg-grid">
+        <div class="pkg-card">
+          <h3>Package 1 <span class="pkg-price">₹440 / pax</span></h3>
+          <ul>
+            <li>Welcome Drink — 1</li>
+            <li>Soup — 1</li>
+            <li>Starter — 1</li>
+            <li>Paneer Main Course — 1</li>
+            <li>Veg Main Course — 1</li>
+            <li>Indian Bread — 1</li>
+            <li>Dal — 1</li>
+            <li>Rice — 1</li>
+            <li>Salad — 1</li>
+            <li>Roasted Papad, Aachar — 1</li>
+            <li>Buttermilk — 1</li>
+            <li>Sweet (regular) — 1</li>
+            <li>Ice Cream — 1</li>
+            <li>Mineral Water 200 ml — 1</li>
+            <li>Mukhwas — 1</li>
+          </ul>
+        </div>
+
+        <div class="pkg-card">
+          <h3>Package 2 <span class="pkg-price">₹549 / pax</span></h3>
+          <ul>
+            <li>Welcome Drink — 2</li>
+            <li>Soup — 2</li>
+            <li>Veg Starter — 1</li>
+            <li>Baked Dish or Pasta — 1</li>
+            <li>Paneer Main Course — 1</li>
+            <li>Veg Main Course — 1</li>
+            <li>Indian Bread — 2</li>
+            <li>Dal — 1</li>
+            <li>Rice — 1</li>
+            <li>Salad — 2</li>
+            <li>Roasted Papad — 1</li>
+            <li>Buttermilk — 1</li>
+            <li>Sweet Regular + Sweet Premium — 1 each</li>
+            <li>Premium Ice Cream — 1</li>
+            <li>Mineral Water 200 ml — 1</li>
+            <li>Mukhwas — 1</li>
+          </ul>
+        </div>
+
+        <div class="pkg-card">
+          <h3>Package 3 <span class="pkg-price">₹650 / pax</span></h3>
+          <ul>
+            <li>Welcome Drink — 2</li>
+            <li>Soup — 2</li>
+            <li>Starter (Veg & Paneer) — 2</li>
+            <li>Baked Dish — 1</li>
+            <li>Pasta — 1</li>
+            <li>Chat — 1</li>
+            <li>Paneer Main Course — 1</li>
+            <li>Veg Main Course — 1</li>
+            <li>Veg. Kofta — 1</li>
+            <li>Indian Breads — 3</li>
+            <li>Dal — 1</li>
+            <li>Rice — 1</li>
+            <li>Salad — 3</li>
+            <li>Roasted Papad, Aachar — 1</li>
+            <li>Buttermilk / Raita — 1</li>
+            <li>Premium Sweet — 2</li>
+            <li>Premium Ice Cream — 1</li>
+            <li>Mineral Water 200 ml — 1</li>
+            <li>Mukhwas — 1</li>
+          </ul>
+        </div>
+
+        <div class="pkg-card">
+          <h3>Package 4 <span class="pkg-price">₹750 / pax</span></h3>
+          <ul>
+            <li>Welcome Drink — 2</li>
+            <li>Soup — 2</li>
+            <li>Starter (Veg & Paneer) — 2</li>
+            <li>Baked Dish, Farshan, Pasta, Chat — 1</li>
+            <li>Paneer & Veg Main Course — 1 each</li>
+            <li>Kofta (Paneer/Veg) — 1</li>
+            <li>Indian Breads — 4</li>
+            <li>Dal — 1</li>
+            <li>Rice — 1</li>
+            <li>Premium Salad — 2</li>
+            <li>Roasted Papad, Aachar — 1</li>
+            <li>Buttermilk / Raita — 1</li>
+            <li>Regular + Premium Sweets — 1 & 2</li>
+            <li>Premium Ice Cream — 1</li>
+            <li>Mineral Water 200 ml — 1</li>
+            <li>Mukhwas — 1</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="section-title">Breakfast Packages</h3>
+      <div class="pkg-grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));">
+        <div class="pkg-card">
+          <h3>Breakfast Package 1 <span class="pkg-price">₹110</span></h3>
+          <ul>
+            <li>Tea / Coffee</li>
+            <li>Hot Snack (choose any one): Mix Bhajiya / Khaman / Samosa / Poha / Methi Gota / Fafda / Ganthiya / Aloo Paratha</li>
+          </ul>
+        </div>
+        <div class="pkg-card">
+          <h3>Breakfast Package 2 <span class="pkg-price">₹160</span></h3>
+          <ul>
+            <li>Tea / Coffee</li>
+            <li>Hot Snack (any one) + Light Snack (any one): Bread Butter, Bread Butter Jam / Veg Sandwich, Mix Cookies</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="section-title">Extra Items (per pax / per unit)</h3>
+      <ul class="item-list" style="column-count:2;">
+        <li>Welcome Drink — ₹30</li>
+        <li>Soup — ₹40</li>
+        <li>Farshan — ₹50</li>
+        <li>Baked Dish — ₹60</li>
+        <li>Chat — ₹40</li>
+        <li>Veg Starter — ₹40</li>
+        <li>Paneer Starter — ₹70</li>
+        <li>Veg Main Course — ₹45</li>
+        <li>Paneer Main Course — ₹55</li>
+        <li>Buttermilk — ₹30</li>
+        <li>Regular Sweet — ₹50</li>
+        <li>Premium Sweet — ₹70</li>
+        <li>Tea / Coffee — ₹30</li>
+      </ul>
+
+      <h3 class="section-title">Choice Menu / Options</h3>
+      <p style="color:var(--muted)">(These are options you may select inside packages — e.g., soups, starters, baked dishes, mains, salads, rice etc.)</p>
+      <div class="pkg-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px;">
+        <div class="pkg-card">
+          <h4>Welcome Drinks & Mocktails</h4>
+          <p class="desc">Litchi Limca, Fruit Punch, Blue Lagoon, Pina Colada, Lemon Cooler, Soft Drinks, Strawberry Punch, Fruit Martini</p>
+        </div>
+        <div class="pkg-card">
+          <h4>Soups</h4>
+          <p class="desc">Tomato / Sweet Corn / Minestrone / Hot & Sour / Manchow / Cream</p>
+        </div>
+        <div class="pkg-card">
+          <h4>Starters</h4>
+          <p class="desc">Veg Spring Roll, Manchurian Dry, Veg Crispy, Hara Bhara Kabab, Corn Tikki, Italian Roll, Paneer Chilly (applicable in Pack 2,3,4)</p>
+        </div>
+        <div class="pkg-card">
+          <h4>Roti / Breads</h4>
+          <p class="desc">Butter Paratha, Butter Naan, Plain Roti / Butter, Puri, Kulcha variants</p>
+        </div>
+      </div>
+
+      <h3 class="section-title">Rice / Mains / Desserts</h3>
+      <p class="desc" style="color:var(--muted)">Vegetable Pulav / Veg Biryani / Hyderabadi Biryani / Zafrani Pulav; Veg mains, Paneer mains (many choices). Desserts: Gulab Jamun, Kala Jamun, Premium sweets & ice creams.</p>
+
+      <h3 class="section-title">Hall Rental</h3>
+      <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+        <div style="flex:1; min-width:240px;">
+          <ul class="item-list">
+            <li>400 Above — Rent: Nil</li>
+            <li>300 — Rent: Nil</li>
+            <li>200 — Rent: Nil</li>
+            <li>100 min — Rent: ₹3000 per hour</li>
+          </ul>
+        </div>
+        <div style="flex:1; min-width:240px;">
+          <img src="banquet-hall-hero.jpg" alt="Banquet hall" style="width:100%; border-radius:8px; object-fit:cover;">
+        </div>
+      </div>
+
+      <h3 class="section-title">Conference Aids (rent)</h3>
+      <ul class="item-list" style="column-count:2;">
+        <li>Projector with Screen — ₹4000</li>
+        <li>Laptop — ₹1500</li>
+        <li>Collar Mike or Cordless Mike & Podium — ₹1000</li>
+        <li>Pad & Pencil — ₹35</li>
+      </ul>
+
+      <h3 class="section-title">Notes & Terms</h3>
+      <pre class="terms">
+- Maximum 1 hour & minimum 100 pax.
+- Extra hall charge @ ₹3000 / per hour when applicable.
+- Extra charge for any other facility or any dish as per price list.
+- 40% advance payment required for confirmation (non-refundable in case of cancellation).
+- No outside food or beverage allowed in banquet premises.
+- Management not responsible for loss of valuables.
+- GST extra as per government rules.
+(Full terms in the brochure)
+      </pre>
+
+      <div style="text-align:center; margin-top:18px;">
+        <p style="margin:8px 0">To book or check availability & pricing: <strong>Call / WhatsApp:</strong> <a href="https://wa.me/918014113322" target="_blank">+91 80141 13322</a> or <a href="mailto:velvet24restaurant@gmail.com">velvet24restaurant@gmail.com</a></p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div style="max-width:1100px;margin:0 auto;padding:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+      <p style="margin:0;font-weight:700;">© 2025 Velvet 24 • All Rights Reserved</p>
+      <p style="margin:0;">1st Floor, Radhe Infinity Complex, Above HDFC Bank, Near Raksha Shakti Circle, Randesan, Gandhinagar</p>
+    </div>
+  </footer>
+
+  <!-- Keep order popup used on other pages -->
+  <div id="popupBg" class="popup-bg"></div>
+  <div id="orderPopup" class="popup-box" aria-hidden="true">
+    <h3>Select Ordering Platform</h3>
+    <div class="popup-btns">
+      <button id="popupSwiggy" class="popup-swiggy" type="button">Swiggy</button>
+      <button id="popupZomato" class="popup-zomato" type="button">Zomato</button>
+    </div>
+    <button id="popupClose" class="popup-close" type="button">Close</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

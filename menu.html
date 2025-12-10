@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Velvet 24 — Menu</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-flex">
+      <h1 class="logo">Velvet 24</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html" class="active">Menu</a>
+        <a href="banquet.html">Banquet</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a id="orderHeaderBtn" class="order-btn" href="https://www.swiggy.com/city/ahmedabad/velvet-24-restaurant-and-banquet-gandhinagar-rest1133323" target="_blank">Order Online</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="menu-hero">
+      <div class="container">
+        <h2>Our Menu</h2>
+        <p>Browse our dishes below — click any item to see full description. Use the search box to find items quickly.</p>
+
+        <!-- Search -->
+        <div style="margin-top:18px; display:flex; gap:8px; justify-content:center; align-items:center;">
+          <input id="menuSearch" type="search" placeholder="Search dishes or ingredients..." aria-label="Search menu" style="width:60%; padding:10px 12px; border-radius:8px; border:1px solid #ddd;">
+          <select id="categoryFilter" style="padding:10px 12px; border-radius:8px; border:1px solid #ddd;">
+            <option value="">All categories</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-list container" id="menuList" aria-live="polite">
+      <!-- Menu items are rendered here by script.js -->
+    </section>
+
+    <div class="floating-order">
+      <button id="swiggyBtn" class="floating-s">Order on Swiggy</button>
+      <button id="zomatoBtn" class="floating-z">Order on Zomato</button>
+    </div>
+  </main>
+
+  <!-- Item detail modal -->
+  <div id="itemModalBg" class="popup-bg"></div>
+  <div id="itemModal" class="popup-box" aria-hidden="true">
+    <h3 id="modalTitle">Item</h3>
+    <p id="modalDesc" style="color:var(--muted);"></p>
+    <p id="modalPrice" style="font-weight:800; margin-top:8px;"></p>
+    <div style="margin-top:12px;">
+      <button id="modalClose" class="popup-close" type="button">Close</button>
+    </div>
+  </div>
+
+  <!-- Chat widget HTML (shared across pages) -->
+  <div id="chatWidget" class="chat-widget">
+    <div class="chat-header">
+      <strong>Chat with Velvet 24</strong>
+      <button id="chatCloseBtn" aria-label="Close chat">✕</button>
+    </div>
+    <div id="chatMessages" class="chat-messages" role="log" aria-live="polite"></div>
+    <div class="chat-input-row">
+      <input id="chatInput" type="text" placeholder="Type your message or event requirements..." aria-label="Type message">
+      <button id="chatSendBtn">Send</button>
+    </div>
+    <div class="chat-actions">
+      <button id="chatEmailBtn" title="Send chat to restaurant via Email">Send to Email</button>
+      <button id="chatWAbtn" title="Send chat to restaurant via WhatsApp">Send to WhatsApp</button>
+    </div>
+  </div>
+
+  <!-- Floating chat button -->
+  <button id="openChatBtn" class="open-chat-btn" aria-label="Open chat">Chat</button>
+
+  <footer>
+    <div style="max-width:1100px;margin:0 auto;padding:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+      <p style="margin:0;font-weight:700;">© 2025 Velvet 24 • All Rights Reserved</p>
+      <p style="margin:0;">1st Floor, Radhe Infinity Complex, Above HDFC Bank, Near Raksha Shakti Circle, Randesan, Gandhinagar</p>
+      <p style="margin:0;">Contact: <a href="tel:+918014113322" style="color:#fff;text-decoration:none;">+91 80141 13322</a></p>
+    </div>
+  </footer>
+
+  <!-- Keep the ordering popup -->
+  <div id="popupBg" class="popup-bg"></div>
+  <div id="orderPopup" class="popup-box" aria-hidden="true">
+    <h3>Select Ordering Platform</h3>
+    <div class="popup-btns">
+      <button id="popupSwiggy" class="popup-swiggy" type="button">Swiggy</button>
+      <button id="popupZomato" class="popup-zomato" type="button">Zomato</button>
+    </div>
+    <button id="popupClose" class="popup-close" type="button">Close</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+

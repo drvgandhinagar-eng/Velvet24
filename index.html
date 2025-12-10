@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Velvet 24</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="home">
+
+  <!-- Header -->
+  <header>
+    <div class="container header-flex">
+      <h1 class="logo">Velvet 24</h1>
+
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="banquet.html">Banquet</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <!-- Fallback href opens Swiggy if popup fails -->
+      <a id="orderHeaderBtn" class="order-btn" href="https://www.swiggy.com/city/ahmedabad/velvet-24-restaurant-and-banquet-gandhinagar-rest1133323" target="_blank">Order Online</a>
+    </div>
+
+    <!-- mobile nav (visible on small screens) -->
+    <div class="mobile-nav" style="display:none;">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="banquet.html">Banquet</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero enhanced-hero">
+    <div class="container hero-inner">
+      <div class="hero-left">
+        <p class="kicker">Velvet 24 — The Taste of Culture</p>
+        <h2 class="hero-title">A Place Where Flavor Meets Elegance</h2>
+        <p class="hero-sub">Authentic dining • Warm ambience • Perfect for family gatherings & celebrations</p>
+
+        <div class="hero-ctas">
+          <a class="order-btn" href="#" id="heroOrderBtn">Order Now</a>
+          <a href="menu.html" class="btn-secondary">Menu</a>
+
+        </div>
+
+        <ul class="hero-features">
+          <li>Banquet Capacity: <strong>200+</strong></li>
+          <li>Prime Location: Randesan, Gandhinagar</li>
+          <li>Timing: 10:30 AM – 3:00 PM | 6:30 PM – 10:30 PM</li>
+        </ul>
+      </div>
+
+      <div class="hero-right">
+        <div class="food-cards">
+          <div class="food-card" style="background-image:url('images/signature.jpg')">
+            <div class="card-label">Signature</div>
+          </div>
+          <div class="food-card" style="background-image:url('images/banquet ready.jpg')">
+            <div class="card-label">Banquet Ready</div>
+          </div>
+          <div class="food-card" style="background-image:url('images/Best Pick.jpg')">
+            <div class="card-label">Chef's Pick</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-strip">
+    <div class="container">
+      <div class="feature">
+        <strong>Easy Booking</strong>
+        <p>Google Form booking for quick quotes</p>
+      </div>
+      <div class="feature">
+        <strong>Order Online</strong>
+        <p>Swiggy & Zomato links</p>
+      </div>
+      <div class="feature">
+        <strong>Gallery</strong>
+        <p>Real photos of events & dishes</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <h3>Welcome to Velvet 24</h3>
+    <p>We blend traditional flavours with a contemporary dining experience. Our banquet hall is perfect for weddings, birthdays, and corporate events — paired with curated menu options and warm service.</p>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <h3>What guests say</h3>
+      <div class="testi-wrap" id="testiWrap">
+        <blockquote class="testi">"Great food and the banquet decor made our wedding perfect!" — <strong>R. Patel</strong></blockquote>
+        <blockquote class="testi">"Fast service on Swiggy and everything arrived hot and delicious." — <strong>S. Mehta</strong></blockquote>
+        <blockquote class="testi">"Lovely ambience and friendly staff. Highly recommended." — <strong>A. Joshi</strong></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY PREVIEW -->
+  <section class="gallery preview">
+    <div class="container">
+      <h3>Gallery</h3>
+      <div class="grid small-grid">
+        <img src="images/sample1.jpg" alt="">
+        <img src="images/sample2.jpg" alt="">
+        <img src="images/sample3.jpg" alt="">
+        <img src="images/sample4.jpg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div style="max-width:1100px;margin:0 auto;padding:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+      <p style="margin:0;font-weight:700;">© 2025 Velvet 24 • All Rights Reserved</p>
+
+      <p style="margin:0;text-align:center;">
+        1st Floor, Radhe Infinity Complex, Above HDFC Bank,<br>
+        Near Raksha Shakti Circle, Randesan, Gandhinagar, Gujarat 382426
+      </p>
+
+      <p style="margin:0;">
+        <strong>Contact:</strong>
+        <a href="tel:+918014113322" style="color:#fff;text-decoration:none;">+91 80141 13322</a> •
+        <a href="mailto:velvet24restaurant@gmail.com" style="color:#fff;text-decoration:none;">velvet24restaurant@gmail.com</a>
+      </p>
+
+      <p style="margin:0;">
+        Timing: 10:30 AM – 3:00 PM | 6:30 PM – 10:30 PM
+      </p>
+
+      <p style="margin:8px 0 0;">
+        <a href="https://www.instagram.com/velvet24_restaurant?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">
+          Follow us on Instagram — @velvet24_restaurant
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== Popup Background & Box (Swiggy/Zomato popup) ===== -->
+  <div id="popupBg" class="popup-bg"></div>
+
+  <div id="orderPopup" class="popup-box" aria-hidden="true">
+    <h3>Select Ordering Platform</h3>
+
+    <div class="popup-btns">
+      <button id="popupSwiggy" class="popup-swiggy" type="button">Swiggy</button>
+      <button id="popupZomato" class="popup-zomato" type="button">Zomato</button>
+    </div>
+
+    <button id="popupClose" class="popup-close" type="button">Close</button>
+  </div>
+
+  <script src="script.js"></script>
+  <!-- homepage helpers (already appended to script.js earlier) -->
+</body>
+</html>
