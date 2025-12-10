@@ -4,169 +4,78 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Velvet 24 — Menu</title>
-  <link rel="stylesheet" href="styles.css" />
-  <meta name="description" content="Velvet 24 - Menu. Browse our dishes, search and view details. Order via Swiggy / Zomato or contact us for bookings." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="menu.css" />
+  <meta name="description" content="Velvet 24 - Full Menu. Browse categories, search items, and request orders." />
 </head>
 <body class="purple-pages">
-  <header>
-    <div class="container header-flex">
-      <h1 class="logo">Velvet 24</h1>
-      <nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Velvet 24</div>
+      <nav class="main-nav">
         <a href="index.html">Home</a>
         <a href="menu.html" class="active">Menu</a>
         <a href="banquet.html">Banquet</a>
-        <a href="contact.html">Visit</a>
+        <a href="contact.html">Contact</a>
       </nav>
-      <a id="orderHeaderBtn" class="order-btn" href="#" aria-label="Order Online">Order Online</a>
+      <div class="header-actions">
+        <a class="btn order-btn" id="orderNowBtn">Order Online</a>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="container" style="padding-top:28px;padding-bottom:8px;">
-      <h2 style="color:var(--gold);">Our Menu</h2>
-      <p class="small" style="margin-bottom:12px;">Browse our dishes below — click any item to see full description. Use the search box to find items quickly.</p>
+    <section class="menu-hero">
+      <div class="container hero-inner">
+        <h1 class="hero-title">Our Menu</h1>
+        <p class="hero-sub">Browse our dishes — large menu organised into categories. Use search or jump to categories.</p>
 
-      <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap;">
-        <input id="menuSearch" type="search" placeholder="Search dishes or ingredients..." aria-label="Search menu" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.03);color:var(--white);" />
-        <select id="categoryFilter" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.03);color:var(--white);">
-          <option value="">All categories</option>
-        </select>
+        <div class="controls" id="filterBar">
+          <input id="menuSearch" type="search" placeholder="Search dishes or ingredients..." aria-label="Search menu" />
+          <div class="right-controls">
+            <select id="categoryFilter">
+              <option value="">All categories</option>
+            </select>
+            <a class="btn btn-outline" href="Restaurant menu.pdf" target="_blank" download>Download PDF</a>
+            <button class="btn" onclick="window.print()">Print</button>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Menu will be rendered into this element by script.js -->
-      <div id="menuList"></div>
+    <nav id="categoryNav" class="category-nav container" aria-label="Menu categories"></nav>
+
+    <section class="container menu-wrap">
+      <div id="menuGrid" class="menu-grid"></div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container" style="padding:20px 0;text-align:center;">
-      <p style="margin:0;font-weight:700;">© 2025 Velvet 24 • All Rights Reserved</p>
-      <p style="margin:6px 0;">1st Floor, Radhe Infinity Complex, Above HDFC Bank, Near Raksha Shakti Circle, Randesan, Gandhinagar, Gujarat 382426</p>
-      <p style="margin:0;">Contact: <a href="https://wa.me/8014113322" style="color:var(--gold);text-decoration:none;">+91 80141 13322</a> • <a href="mailto:velvet24restaurant@gmail.com" style="color:var(--gold);text-decoration:none;">velvet24restaurant@gmail.com</a></p>
+  <!-- Item modal -->
+  <div id="itemModal" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <h3 id="modalName"></h3>
+      <div id="modalPrice" class="modal-price"></div>
+      <p id="modalDesc" class="modal-desc"></p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Velvet 24 • 1st Floor, Radhe Infinity Complex, Above HDFC Bank, Randesan, Gandhinagar • <a href="https://wa.me/918014113322">+91 80141 13322</a></p>
     </div>
   </footer>
 
-  <!-- Order popup (kept for order online behaviour) -->
-  <div id="popupBg" class="popup-bg"></div>
-  <div id="orderPopup" class="popup-box" aria-hidden="true">
-    <h3>Select Ordering Platform</h3>
-    <div class="popup-btns" style="display:flex;gap:10px;justify-content:center;margin-top:12px;">
-      <button id="popupSwiggy" class="popup-swiggy">Swiggy</button>
-      <button id="popupZomato" class="popup-zomato">Zomato</button>
-    </div>
-    <div style="text-align:center;margin-top:12px;">
-      <button id="popupClose" class="popup-close">Close</button>
-    </div>
-  </div>
-
-  <!-- ===== Contact widget (replaces chat input) ===== -->
-  <div id="contactWidget" class="contact-widget" aria-label="Contact widget">
-    <div class="cw-header">Contact / Quick Enquiry</div>
-
-    <div class="cw-body">
-      <p class="cw-instr">Quickly contact us about menu items, catering or bookings.</p>
-
-      <!-- Optional small textarea (user can add details like date, guests) -->
-      <textarea id="cwMessage" placeholder="Write brief details (date, guests, package, dish)..."></textarea>
-
-      <div class="cw-buttons">
-        <button id="cwEmailBtn" class="btn-primary cw-btn">Send to Email</button>
-        <button id="cwWaBtn" class="btn-primary cw-btn">Send to WhatsApp</button>
-      </div>
-
-      <div class="cw-note small">Or call / WhatsApp: <a href="https://wa.me/918014113322" target="_blank" rel="noopener">+91 80141 13322</a></div>
-    </div>
-  </div>
-
-  <!-- Optional modal elements (script creates dynamic modal if missing but we include a lightweight background) -->
-  <div id="itemModalBg" class="modal-bg"></div>
-  <!-- Modal is created dynamically by script.js if needed -->
-
+  <!-- Data + scripts -->
   <script>
-    // Minimal page-level constants used by contact widget handlers in script.js
+    // Small constants used by menu.js
+    window.MENU_DATA_FILE = 'menu-data.json';
     window.RESTAURANT_EMAIL = "velvet24restaurant@gmail.com";
     window.RESTAURANT_PHONE = "+91801411322";
   </script>
-
-  <script src="script.js"></script>
-
-  <!-- If your script.js did not include contact widget JS, we include a safe handler here.
-       If you already appended the contact JS into script.js earlier, this duplicate will harmlessly rebind handlers. -->
-  <script>
-    (function(){
-      // Guard: wait for DOM
-      document.addEventListener("DOMContentLoaded", function(){
-        const SITE_CONTACT_EMAIL = (window.RESTAURANT_EMAIL) ? window.RESTAURANT_EMAIL : "velvet24restaurant@gmail.com";
-        const SITE_CONTACT_PHONE = (window.RESTAURANT_PHONE) ? window.RESTAURANT_PHONE : "+91801411322";
-
-        function phoneDigitsOnly(phone) {
-          return phone.replace(/\D/g, '');
-        }
-        function buildContactMessage() {
-          const freeTextEl = document.getElementById('cwMessage');
-          const freeText = freeTextEl ? freeTextEl.value.trim() : "";
-          let itemName = "";
-          try { if (window.lastViewedMenuItem) itemName = window.lastViewedMenuItem; } catch(e){}
-          let lines = [];
-          lines.push("Hello Velvet 24,");
-          if (itemName) lines.push("Enquiry about: " + itemName);
-          lines.push("Details:");
-          if (freeText) lines.push(freeText); else lines.push("(please add date, guest count, package, or items)");
-          lines.push("");
-          lines.push("Please reply with availability & pricing. Thank you.");
-          return lines.join("\n");
-        }
-
-        const eBtn = document.getElementById('cwEmailBtn');
-        const wBtn = document.getElementById('cwWaBtn');
-
-        if (eBtn) eBtn.addEventListener("click", function(){
-          const subject = "Website Enquiry: Velvet 24";
-          const body = buildContactMessage();
-          const mailto = 'mailto:' + SITE_CONTACT_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-          // open default mail client
-          window.location.href = mailto;
-        });
-
-        if (wBtn) wBtn.addEventListener("click", function(){
-          const body = buildContactMessage();
-          const digits = phoneDigitsOnly(SITE_CONTACT_PHONE);
-          const waUrl = 'https://wa.me/' + digits + '?text=' + encodeURIComponent(body);
-          window.open(waUrl, '_blank');
-        });
-
-        // Order header button: open ordering popup if the orderPopup exists
-        const headerBtn = document.getElementById('orderHeaderBtn');
-        if (headerBtn) {
-          headerBtn.addEventListener('click', function(e){
-            e.preventDefault && e.preventDefault();
-            const popup = document.getElementById('orderPopup');
-            const bg = document.getElementById('popupBg');
-            if (popup && bg) {
-              popup.classList.add('active'); popup.setAttribute('aria-hidden','false');
-              bg.classList.add('active');
-            } else {
-              // fallback go to Swiggy
-              window.open('https://www.swiggy.com/city/ahmedabad/velvet-24-restaurant-and-banquet-gandhinagar-rest1133323','_blank');
-            }
-          });
-        }
-
-        // Wire the small order popup buttons (if present in DOM)
-        const swiggyPopupBtn = document.getElementById('popupSwiggy');
-        const zomatoPopupBtn = document.getElementById('popupZomato');
-        const popupClose = document.getElementById('popupClose');
-        const popupBg = document.getElementById('popupBg');
-
-        if (swiggyPopupBtn) swiggyPopupBtn.addEventListener('click', function(){ window.open('https://www.swiggy.com/city/ahmedabad/velvet-24-restaurant-and-banquet-gandhinagar-rest1133323','_blank'); if(popupBg){ popupBg.classList.remove('active'); } if(document.getElementById('orderPopup')) document.getElementById('orderPopup').classList.remove('active'); });
-        if (zomatoPopupBtn) zomatoPopupBtn.addEventListener('click', function(){ window.open('https://www.zomato.com/ahmedabad/velvet-24-the-taste-of-culture-infocity-gandhinagar','_blank'); if(popupBg){ popupBg.classList.remove('active'); } if(document.getElementById('orderPopup')) document.getElementById('orderPopup').classList.remove('active'); });
-        if (popupClose) popupClose.addEventListener('click', function(){ if(popupBg){ popupBg.classList.remove('active'); } if(document.getElementById('orderPopup')) document.getElementById('orderPopup').classList.remove('active'); });
-      });
-    })();
-  </script>
-
+  <script src="menu.js"></script>
 </body>
 </html>
-
-
